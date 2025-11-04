@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.container {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    max-width: 800px;
+    width: 100%;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+}
+
+.game-info {
+    margin-bottom: 20px;
+}
+
+.status {
+    text-align: center;
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #667eea;
+    margin-bottom: 15px;
+    padding: 15px;
+    background: #f0f0f0;
+    border-radius: 10px;
+}
+
+.score {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    font-size: 1.1em;
+    color: #555;
+}
+
+.score span {
+    padding: 10px 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+}
+
+.difficulty-selector {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.difficulty-selector h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.difficulty-btn {
+    display: inline-block;
+    margin: 10px;
+    padding: 20px 30px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: transform 0.2s, box-shadow 0.2s;
+    min-width: 250px;
+}
+
+.difficulty-btn:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+}
+
+.difficulty-btn .emoji {
+    display: block;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.difficulty-btn .label {
+    display: block;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.difficulty-btn .description {
+    display: block;
+    font-size: 0.9em;
+    opacity: 0.9;
+}
+
+.game-container {
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.board {
+    display: inline-grid;
+    grid-template-columns: repeat(7, 70px);
+    grid-template-rows: repeat(6, 70px);
+    gap: 10px;
+    background: #2563eb;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.cell {
+    width: 70px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.cell:hover {
+    transform: scale(1.05);
+}
+
+.cell.player {
+    background: radial-gradient(circle, #ef4444, #dc2626);
+    animation: dropPiece 0.5s ease-out;
+}
+
+.cell.ai {
+    background: radial-gradient(circle, #fbbf24, #f59e0b);
+    animation: dropPiece 0.5s ease-out;
+}
+
+.cell.winning {
+    animation: pulse 0.6s infinite alternate;
+}
+
+.cell.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+@keyframes dropPiece {
+    0% {
+        transform: translateY(-400px);
+    }
+    60% {
+        transform: translateY(10px);
+    }
+    80% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes pulse {
+    from {
+        box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px 10px rgba(255, 255, 255, 0.9);
+    }
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+button {
+    padding: 12px 30px;
+    font-size: 1.1em;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .board {
+        grid-template-columns: repeat(7, 50px);
+        grid-template-rows: repeat(6, 50px);
+        gap: 8px;
+        padding: 15px;
+    }
+
+    .cell {
+        width: 50px;
+        height: 50px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .difficulty-btn {
+        min-width: 200px;
+        font-size: 1em;
+    }
+}

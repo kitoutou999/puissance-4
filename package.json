@@ -1,0 +1,20 @@
+{
+  "name": "puissance-4-multiplayer",
+  "version": "1.0.0",
+  "description": "Jeu de Puissance 4 avec IA - Préparé pour système de vote par téléphone",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "keywords": ["puissance4", "connect4", "game", "ai", "multiplayer"],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "socket.io": "^4.6.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Puissance 4 - Jouer contre l'IA</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Puissance 4</h1>
+
+        <div class="game-info">
+            <div class="status" id="status">Sélectionnez un niveau de difficulté</div>
+            <div class="score">
+                <span>Victoires: <span id="player-wins">0</span></span>
+                <span>Égalités: <span id="draws">0</span></span>
+                <span>Défaites: <span id="ai-wins">0</span></span>
+            </div>
+        </div>
+
+        <div class="difficulty-selector" id="difficulty-selector">
+            <h2>Choisissez votre adversaire :</h2>
+            <button class="difficulty-btn" data-difficulty="intermediate">
+                <span class="emoji">🤖</span>
+                <span class="label">IA Intermédiaire</span>
+                <span class="description">Bonne mais battable</span>
+            </button>
+            <button class="difficulty-btn" data-difficulty="unbeatable">
+                <span class="emoji">🧠</span>
+                <span class="label">IA Imbattable</span>
+                <span class="description">Utilise l'algorithme Minimax</span>
+            </button>
+        </div>
+
+        <div class="game-container" id="game-container" style="display: none;">
+            <div class="board" id="board"></div>
+        </div>
+
+        <div class="controls">
+            <button id="restart-btn" style="display: none;">Nouvelle Partie</button>
+            <button id="change-difficulty-btn" style="display: none;">Changer de Difficulté</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
